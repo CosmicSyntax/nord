@@ -716,11 +716,19 @@ hi! link pandocUListItemBullet Operator
 if has('nvim')
   " tree-sitter
   " > nvim-treesitter/nvim-treesitter
-  call s:hi("@constant.builtin", s:nord9_gui, "", s:nord9_term, "", "", "")
-  call s:hi("@type.builtin", s:nord7_gui, "", s:nord7_term, "", "", "")
-  hi! link @constructor Function
-  hi! link @function.builtin Function
-  hi! link @function.macro Function
+  hi! link TSAnnotation Annotation
+  hi! link TSConstBuiltin Constant
+  hi! link TSConstructor Function
+  hi! link TSEmphasis Italic
+  hi! link TSFuncBuiltin Function
+  hi! link TSFuncMacro Function
+  hi! link TSStringRegex SpecialChar
+  hi! link TSStrong Bold
+  hi! link TSStructure Structure
+  hi! link TSTagDelimiter TSTag
+  hi! link TSUnderline Underline
+  hi! link TSVariable Variable
+  hi! link TSVariableBuiltin Keyword
   hi! link WinBar PMenu
   hi! link WinBarNC PMenu
 endif
