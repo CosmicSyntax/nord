@@ -167,14 +167,14 @@ if has('nvim')
   let g:terminal_color_8 = s:nord3_gui
   let g:terminal_color_9 = s:nord11_gui
   let g:terminal_color_10 = s:nord14_gui
-  let g:terminal_color_11 = s:nord12_gui
-  let g:terminal_color_12 = s:nord10_gui
+  let g:terminal_color_11 = s:nord13_gui
+  let g:terminal_color_12 = s:nord9_gui
   let g:terminal_color_13 = s:nord15_gui
   let g:terminal_color_14 = s:nord7_gui
   let g:terminal_color_15 = s:nord6_gui
 
   "+- Neovim Floating Window -+
-  call s:hi("NormalFloat", s:nord4_gui, s:nord2_gui, "NONE", s:nord1_term, "NONE", "")
+  call s:hi("NormalFloat", s:nord4_gui, s:nord0_gui, "NONE", s:nord1_term, "NONE", "")
 
   "+- Neovim Support -+
   call s:hi("healthError", s:nord11_gui, s:nord1_gui, s:nord11_term, s:nord1_term, "", "")
@@ -274,7 +274,7 @@ call s:hi("Number", s:nord15_gui, "", s:nord15_term, "", "", "")
 call s:hi("Operator", s:nord9_gui, "", s:nord9_term, "", "NONE", "")
 call s:hi("PreProc", s:nord10_gui, "", s:nord10_term, "", "NONE", "")
 call s:hi("Repeat", s:nord9_gui, "", s:nord9_term, "", "", "")
-call s:hi("Special", s:nord4_gui, "", "None", "", "", "")
+call s:hi("Special", s:nord7_gui, s:nord7_term, "NONE", "", "", "")
 call s:hi("SpecialChar", s:nord13_gui, "", s:nord13_term, "", "", "")
 call s:hi("SpecialComment", s:nord8_gui, "", s:nord8_term, "", s:italicize_comments, "")
 call s:hi("Statement", s:nord9_gui, "", s:nord9_term, "", "", "")
@@ -283,7 +283,7 @@ call s:hi("String", s:nord14_gui, "", s:nord14_term, "", "", "")
 call s:hi("Structure", s:nord9_gui, "", s:nord9_term, "", "", "")
 call s:hi("Tag", s:nord4_gui, "", "", "", "", "")
 call s:hi("Todo", s:nord13_gui, "NONE", s:nord13_term, "NONE", "", "")
-call s:hi("Type", s:nord9_gui, "", s:nord9_term, "", "NONE", "")
+call s:hi("Type", s:nord7_gui, "", s:nord7_term, "", "NONE", "")
 call s:hi("Typedef", s:nord9_gui, "", s:nord9_term, "", "", "")
 
 "+-----------+
@@ -721,6 +721,8 @@ if has('nvim')
   hi! link @constructor Function
   hi! link @function.builtin Function
   hi! link @function.macro Function
+  hi! link WinBar PMenu
+  hi! link WinBarNC PMenu
 endif
 
 " TypeScript
