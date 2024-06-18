@@ -128,7 +128,7 @@ call s:hi("Italic", "", "", "", "", s:italic, "")
 call s:hi("Underline", "", "", "", "", s:underline, "")
 
 "+--- Editor ---+
-call s:hi("ColorColumn", "", s:nord1_gui, "NONE", s:nord1_term, "", "")
+call s:hi("ColorColumn", "", s:nord1_gui, "NONE", s:nord1_term, "NONE", "")
 call s:hi("Cursor", s:nord0_gui, s:nord4_gui, "", "NONE", "", "")
 call s:hi("CursorLine", "", s:nord1_gui, "NONE", s:nord1_term, "NONE", "")
 call s:hi("Error", s:nord4_gui, s:nord11_gui, "", s:nord11_term, "", "")
@@ -146,12 +146,12 @@ call s:hi("SpellBad", s:nord11_gui, s:nord0_gui, s:nord11_term, "NONE", "undercu
 call s:hi("SpellCap", s:nord13_gui, s:nord0_gui, s:nord13_term, "NONE", "undercurl", s:nord13_gui)
 call s:hi("SpellLocal", s:nord5_gui, s:nord0_gui, s:nord5_term, "NONE", "undercurl", s:nord5_gui)
 call s:hi("SpellRare", s:nord6_gui, s:nord0_gui, s:nord6_term, "NONE", "undercurl", s:nord6_gui)
-call s:hi("Visual", "", s:nord2_gui, "", s:nord1_term, "", "")
-call s:hi("VisualNOS", "", s:nord2_gui, "", s:nord1_term, "", "")
+call s:hi("Visual", "", s:nord2_gui, "NONE", s:nord1_term, "", "")
+call s:hi("VisualNOS", "", s:nord2_gui, "NONE", s:nord1_term, "", "")
 
 "+- Vim 8 Terminal Colors -+
 if has('terminal')
-  let g:terminal_ansi_colors = [s:nord1_gui, s:nord11_gui, s:nord14_gui, s:nord13_gui, s:nord9_gui, s:nord15_gui, s:nord8_gui, s:nord5_gui, s:nord3_gui, s:nord11_gui, s:nord14_gui, s:nord13_gui, s:nord9_gui, s:nord15_gui, s:nord7_gui, s:nord6_gui]
+  let g:terminal_ansi_colors = [s:nord1_gui, s:nord11_gui, s:nord14_gui, s:nord13_gui, s:nord9_gui, s:nord15_gui, s:nord8_gui, s:nord5_gui, s:nord3_gui, s:nord11_gui, s:nord14_gui, s:nord12_gui, s:nord10_gui, s:nord15_gui, s:nord7_gui, s:nord6_gui]
 endif
 
 if has('nvim')
@@ -167,11 +167,14 @@ if has('nvim')
   let g:terminal_color_8 = s:nord3_gui
   let g:terminal_color_9 = s:nord11_gui
   let g:terminal_color_10 = s:nord14_gui
-  let g:terminal_color_11 = s:nord13_gui
-  let g:terminal_color_12 = s:nord9_gui
+  let g:terminal_color_11 = s:nord12_gui
+  let g:terminal_color_12 = s:nord10_gui
   let g:terminal_color_13 = s:nord15_gui
   let g:terminal_color_14 = s:nord7_gui
   let g:terminal_color_15 = s:nord6_gui
+
+  "+- Neovim Floating Window -+
+  call s:hi("NormalFloat", s:nord4_gui, s:nord2_gui, "NONE", s:nord1_term, "NONE", "")
 
   "+- Neovim Support -+
   call s:hi("healthError", s:nord11_gui, s:nord1_gui, s:nord11_term, s:nord1_term, "", "")
@@ -260,20 +263,18 @@ call s:hi("Conceal", "", "NONE", "", "NONE", "", "")
 call s:hi("Conditional", s:nord9_gui, "", s:nord9_term, "", "", "")
 call s:hi("Constant", s:nord4_gui, "", "NONE", "", "", "")
 call s:hi("Decorator", s:nord12_gui, "", s:nord12_term, "", "", "")
-call s:hi("Define", s:nord9_gui, "", s:nord9_term, "", "", "")
 call s:hi("Delimiter", s:nord6_gui, "", s:nord6_term, "", "", "")
 call s:hi("Exception", s:nord9_gui, "", s:nord9_term, "", "", "")
 call s:hi("Float", s:nord15_gui, "", s:nord15_term, "", "", "")
 call s:hi("Function", s:nord8_gui, "", s:nord8_term, "", "", "")
 call s:hi("Identifier", s:nord4_gui, "", "NONE", "", "NONE", "")
-call s:hi("Include", s:nord9_gui, "", s:nord9_term, "", "", "")
 call s:hi("Keyword", s:nord9_gui, "", s:nord9_term, "", "", "")
 call s:hi("Label", s:nord9_gui, "", s:nord9_term, "", "", "")
 call s:hi("Number", s:nord15_gui, "", s:nord15_term, "", "", "")
 call s:hi("Operator", s:nord9_gui, "", s:nord9_term, "", "NONE", "")
-call s:hi("PreProc", s:nord9_gui, "", s:nord9_term, "", "NONE", "")
+call s:hi("PreProc", s:nord10_gui, "", s:nord10_term, "", "NONE", "")
 call s:hi("Repeat", s:nord9_gui, "", s:nord9_term, "", "", "")
-call s:hi("Special", s:nord4_gui, "", "NONE", "", "", "")
+call s:hi("Special", s:nord4_gui, "", "None", "", "", "")
 call s:hi("SpecialChar", s:nord13_gui, "", s:nord13_term, "", "", "")
 call s:hi("SpecialComment", s:nord8_gui, "", s:nord8_term, "", s:italicize_comments, "")
 call s:hi("Statement", s:nord9_gui, "", s:nord9_term, "", "", "")
@@ -284,10 +285,6 @@ call s:hi("Tag", s:nord4_gui, "", "", "", "", "")
 call s:hi("Todo", s:nord13_gui, "NONE", s:nord13_term, "NONE", "", "")
 call s:hi("Type", s:nord9_gui, "", s:nord9_term, "", "NONE", "")
 call s:hi("Typedef", s:nord9_gui, "", s:nord9_term, "", "", "")
-hi! link Annotation Decorator
-hi! link Macro Define
-hi! link PreCondit PreProc
-hi! link Variable Identifier
 
 "+-----------+
 "+ Languages +
@@ -677,7 +674,6 @@ hi! link StartifySpecial Comment
 "+--- Languages ---+
 " Haskell
 " > neovimhaskell/haskell-vim
-call s:hi("haskellPreProc", s:nord10_gui, "", s:nord10_term, "", "", "")
 call s:hi("haskellType", s:nord7_gui, "", s:nord7_term, "", "", "")
 hi! link haskellPragma haskellPreProc
 
@@ -720,19 +716,11 @@ hi! link pandocUListItemBullet Operator
 if has('nvim')
   " tree-sitter
   " > nvim-treesitter/nvim-treesitter
-  hi! link TSAnnotation Annotation
-  hi! link TSConstBuiltin Constant
-  hi! link TSConstructor Function
-  hi! link TSEmphasis Italic
-  hi! link TSFuncBuiltin Function
-  hi! link TSFuncMacro Function
-  hi! link TSStringRegex SpecialChar
-  hi! link TSStrong Bold
-  hi! link TSStructure Structure
-  hi! link TSTagDelimiter TSTag
-  hi! link TSUnderline Underline
-  hi! link TSVariable Variable
-  hi! link TSVariableBuiltin Keyword
+  call s:hi("@constant.builtin", s:nord9_gui, "", s:nord9_term, "", "", "")
+  call s:hi("@type.builtin", s:nord7_gui, "", s:nord7_term, "", "", "")
+  hi! link @constructor Function
+  hi! link @function.builtin Function
+  hi! link @function.macro Function
 endif
 
 " TypeScript
